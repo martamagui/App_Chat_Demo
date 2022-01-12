@@ -3,9 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Marta/Documents/GitHub/Android/App_Chat_Demo/app/src/main/res/layout/activity_main.xml" value="0.23728813559322035" />
-        <entry key="..\:/Users/Marta/Documents/GitHub/Android/App_Chat_Demo/app/src/main/res/layout/fragment_msg.xml" value="0.3140625" />
-        <entry key="..\:/Users/Marta/Documents/GitHub/Android/App_Chat_Demo/app/src/main/res/layout/msg_item.xml" value="0.328125" />
+        <entry key="..\:/Users/Marta/Documents/GitHub/Android/App_Chat_Demo_Clase/app/src/main/res/layout/fragment_chat.xml" value="0.3029891304347826" />
+        <entry key="..\:/Users/Marta/Documents/GitHub/Android/App_Demo_Chat/app/src/main/res/layout/activity_main.xml" value="0.21693840579710144" />
+        <entry key="..\:/Users/Marta/Documents/GitHub/Android/App_Demo_Chat/app/src/main/res/layout/chat_item.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/Marta/Documents/GitHub/Android/App_Demo_Chat/app/src/main/res/layout/fragment_chat.xml" value="0.17798913043478262" />
+        <entry key="..\:/Users/Marta/Documents/GitHub/Android/App_Demo_Chat/app/src/main/res/layout/message_item.xml" value="0.3333333333333333" />
       </map>
     </option>
   </component>

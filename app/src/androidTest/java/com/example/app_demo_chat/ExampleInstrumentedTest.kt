@@ -1,4 +1,4 @@
-package com.example.chatdemo
+package com.example.app_demo_chat
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.example.chatdemo", appContext.packageName)
+        assertEquals("com.example.app_demo_chat", appContext.packageName)
     }
 }
