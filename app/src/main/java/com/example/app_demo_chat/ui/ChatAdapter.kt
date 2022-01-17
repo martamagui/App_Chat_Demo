@@ -1,7 +1,9 @@
 package com.example.app_demo_chat.ui
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.marginLeft
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -19,6 +21,9 @@ class ChatAdapter : ListAdapter<Message, ChatAdapter.ViewHolder>(MessageItemCall
         val itemMsg = getItem(position)
         holder.binding.tvChatText.text = itemMsg.msg
         holder.binding.tvChatDate.text = itemMsg.date
+        if(itemMsg.userIdFk==0){
+            holder.binding.cvMsg.setCardBackgroundColor(Color.rgb(190,190,16));
+        }
     }
     inner class ViewHolder(val binding: MessageItemBinding) :
         RecyclerView.ViewHolder(binding.root) {

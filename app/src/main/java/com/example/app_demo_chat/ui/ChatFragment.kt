@@ -25,6 +25,7 @@ class ChatFragment : Fragment() {
         get() = _binding!!
     private val adapter = ChatAdapter()
     private val msgList: MutableList<Message> = mutableListOf()
+    private val userId = 0
 
 
     override fun onCreateView(
@@ -56,6 +57,7 @@ class ChatFragment : Fragment() {
                 if (response.isSuccessful) {
                     msgList.clear()
                     response.body()?.let { msgList.addAll(it) }
+                    msgList.sortByDescending { it.msgId }
                     adapter.submitList(msgList)
                     adapter.notifyDataSetChanged()
                 } else {
@@ -64,21 +66,23 @@ class ChatFragment : Fragment() {
                     Log.e("requestData", "error en la respuesta: $code <> $message")
                 }
             }
-
             override fun onFailure(call: Call<List<Message>>, t: Throwable) {
                 Log.e("requestData", "error", t)
             }
-
-
         })
     }
 
     private fun sendMessage(msg: String) {
-        ChatApi.service.addMessage(Message(msgList.size, 0, msg, Date().toString())).enqueue(object : Callback<List<Message>> {
-                override fun onResponse(call:  Call<List<Message>>, response: Response<List<Message>>) {
+        ChatApi.service.addMessage(Message(msgList.size, userId, msg, Date().toString()))
+            .enqueue(object : Callback<List<Message>> {
+                override fun onResponse(
+                    call: Call<List<Message>>,
+                    response: Response<List<Message>>
+                ) {
                     if (response.isSuccessful) {
                         msgList.clear()
                         response.body()?.let { msgList.addAll(it) }
+                        msgList.sortByDescending { it.msgId }
                         adapter.submitList(msgList)
                         adapter.notifyDataSetChanged()
                     } else {
@@ -89,10 +93,10 @@ class ChatFragment : Fragment() {
                     }
                 }
 
-            override fun onFailure(call: Call<List<Message>>, t: Throwable) {
-                Log.e("requestData", "error", t)
-            }
-        })
+                override fun onFailure(call: Call<List<Message>>, t: Throwable) {
+                    Log.e("requestData", "error", t)
+                }
+            })
     }
 
     override fun onDestroyView() {

@@ -7,7 +7,10 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.room.Room
 import com.example.app_demo_chat.databinding.ActivityMainBinding
+import com.example.app_demo_chat.db.ChatDB
+import com.example.app_demo_chat.db.MessageEntity
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,5 +34,16 @@ class MainActivity : AppCompatActivity() {
 //        )
 //        setupActionBarWithNavController(navController, appBarConfiguration)
 //        navView.setupWithNavController(navController)
+        val db = Room.databaseBuilder(applicationContext, ChatDB::class.java, "chat.db")
+            .allowMainThreadQueries()
+            .build()
+        db.messageDao().findAll()
+        val message = MessageEntity(0,"Mensaje de BD","date",1)
+        db.messageDao().createMessage(message)
+        db.messageDao().createMessage(message)
+        db.messageDao().createMessage(message)
+        db.messageDao().createMessage(message)
+        db.messageDao().createMessage(message)
+
     }
 }
