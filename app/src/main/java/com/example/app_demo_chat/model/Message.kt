@@ -8,8 +8,8 @@ import com.google.gson.annotations.SerializedName
 data class Message(
 //    @SerializedName("msgId")
     val msgId: Int,
-//    @SerializedName("userId")
-    val userId: Int,
+    @SerializedName("userIdFk")
+    val userIdFk: Int,
    @SerializedName("text")
     val msg: String,
 //    @SerializedName("date")

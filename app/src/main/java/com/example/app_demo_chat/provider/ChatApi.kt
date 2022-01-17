@@ -6,8 +6,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 import okhttp3.OkHttpClient
 
 
-
-
 object ChatApi {
     private val logginInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
     var client: OkHttpClient = OkHttpClient.Builder().addInterceptor(logginInterceptor).build()

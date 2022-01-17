@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="msgText" parent="TextAppearance.AppCompat.Body2">
+        <item name="android:textColor">#CE2C2C2C</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="msgDate" >
+        <item name="android:textColor">#CE2C2C2C</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>
