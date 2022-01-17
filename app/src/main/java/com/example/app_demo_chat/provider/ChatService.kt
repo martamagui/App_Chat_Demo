@@ -13,5 +13,5 @@ interface ChatService {
     fun getMessage(): Call<List<Message>>
 
     @POST("msg")
-    fun addMessage(@Body msg: Message):Call<Any>
+    fun addMessage(@Body msg: Message):Call<List<Message>>
 }
