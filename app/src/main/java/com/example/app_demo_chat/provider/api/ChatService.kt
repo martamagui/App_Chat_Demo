@@ -1,4 +1,4 @@
-package com.example.app_demo_chat.provider
+package com.example.app_demo_chat.provider.api
 
 
 import retrofit2.Call

@@ -1,4 +1,4 @@
-package com.example.app_demo_chat.db
+package com.example.app_demo_chat.provider.db
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

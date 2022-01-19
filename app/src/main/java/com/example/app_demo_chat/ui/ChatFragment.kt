@@ -9,10 +9,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.app_demo_chat.MainActivity
 import com.example.app_demo_chat.databinding.FragmentChatBinding
 import com.example.app_demo_chat.model.Message
-import com.example.app_demo_chat.model.MessageBody
-import com.example.app_demo_chat.provider.ChatApi
+import com.example.app_demo_chat.provider.api.ChatApi
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -61,15 +61,26 @@ class ChatFragment : Fragment() {
                     adapter.submitList(msgList)
                     adapter.notifyDataSetChanged()
                 } else {
+                    getMsgListFromDB()
                     val code = response.code()
                     val message = response.message()
                     Log.e("requestData", "error en la respuesta: $code <> $message")
                 }
             }
             override fun onFailure(call: Call<List<Message>>, t: Throwable) {
+                getMsgListFromDB()
                 Log.e("requestData", "error", t)
             }
         })
+    }
+
+    private fun getMsgListFromDB() {
+        val localMsgEntityList = (activity as MainActivity).db.messageDao().findAll()
+        val localMsgs = mutableListOf<Message>()
+        for (item in localMsgEntityList) {
+            localMsgs.add(Message(item.msgId, item.userIdFk, item.text, item.date.toString()))
+        }
+        adapter.submitList(localMsgs)
     }
 
     private fun sendMessage(msg: String) {

@@ -1,4 +1,4 @@
-package com.example.app_demo_chat.provider
+package com.example.app_demo_chat.provider.api
 
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

@@ -1,7 +1,6 @@
-package com.example.app_demo_chat.db
+package com.example.app_demo_chat.provider.db
 
 import androidx.room.*
-import com.example.app_demo_chat.model.Message
 
 @Dao
 interface MessageDao {
@@ -12,6 +11,8 @@ interface MessageDao {
 //    fun findAllSorted(): List<Message>
     @Insert
     fun createMessage(messageEntity: MessageEntity)
+    @Insert
+    fun createMessages(messageEntity: List<MessageEntity>)
     @Update
     fun updateMessage(messageEntity: MessageEntity)
     @Delete
