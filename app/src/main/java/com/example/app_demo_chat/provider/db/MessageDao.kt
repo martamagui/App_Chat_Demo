@@ -17,4 +17,6 @@ interface MessageDao {
     fun updateMessage(messageEntity: MessageEntity)
     @Delete
     fun deleteMessage(messageEntity: MessageEntity)
+    @Delete
+    fun deleteAllMessages(messageEntity: List<MessageEntity>)
 }

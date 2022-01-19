@@ -10,9 +10,7 @@ import com.example.app_demo_chat.provider.db.ChatDB
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    val db = Room.databaseBuilder(applicationContext, ChatDB::class.java, "chat.db")
-        .allowMainThreadQueries()
-        .build()
+    lateinit var db :ChatDB
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -34,8 +32,11 @@ class MainActivity : AppCompatActivity() {
 //        val db = Room.databaseBuilder(applicationContext, ChatDB::class.java, "chat.db")
 //            .allowMainThreadQueries()
 //            .build()
-        db.messageDao().findAll()
+//        db.messageDao().findAll()
 //        val message = MessageEntity(0,"Mensaje de BD","date",1)
 //        db.messageDao().createMessage(message)
+        db = Room.databaseBuilder(applicationContext, ChatDB::class.java, "chat.db")
+            .allowMainThreadQueries()
+            .build()
     }
 }

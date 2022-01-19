@@ -22,7 +22,13 @@ class ChatAdapter : ListAdapter<Message, ChatAdapter.ViewHolder>(MessageItemCall
         holder.binding.tvChatText.text = itemMsg.msg
         holder.binding.tvChatDate.text = itemMsg.date
         if(itemMsg.userIdFk==0){
-            holder.binding.cvMsg.setCardBackgroundColor(Color.rgb(190,190,16));
+            holder.binding.cvMsg.setCardBackgroundColor(Color.rgb(19,20,92))
+            holder.binding.tvChatText.setTextColor(Color.rgb(238,238,246))
+            holder.binding.tvChatDate.setTextColor(Color.rgb(238,238,246))
+        }else{
+            holder.binding.cvMsg.setCardBackgroundColor(Color.rgb(238,238,246))
+            holder.binding.tvChatText.setTextColor(Color.rgb(19,20,92))
+            holder.binding.tvChatDate.setTextColor(Color.rgb(19,20,92))
         }
     }
     inner class ViewHolder(val binding: MessageItemBinding) :
