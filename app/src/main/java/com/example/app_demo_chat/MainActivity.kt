@@ -39,6 +39,7 @@ class MainActivity : AppCompatActivity() {
         val notification = NotificationCompat.Builder(this, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_launcher_foreground)
             .setContentTitle("Titulo de la notifiación")
+            .setStyle(NotificationCompat.BigTextStyle().bigText("Otras bibliotecas del grupo com.android.support también incluyen support-compat como dependencia transitiva. Por lo tanto, si ya usas otras API de biblioteca de compatibilidad, es posible que tengas acceso a NotificationCompat sin la necesidad de tener la dependencia exacta que se muestra arriba."))
             .setContentText("Texto de la notificación")
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setContentIntent(pendingIntent)
