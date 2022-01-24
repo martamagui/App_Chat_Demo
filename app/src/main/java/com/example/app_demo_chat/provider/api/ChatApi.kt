@@ -7,7 +7,10 @@ import okhttp3.OkHttpClient
 
 
 object ChatApi {
-    private val logginInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+    //    private val logginInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+    private val logginInterceptor = HttpLoggingInterceptor().apply {
+        level = HttpLoggingInterceptor.Level.BODY
+    }
     var client: OkHttpClient = OkHttpClient.Builder().addInterceptor(logginInterceptor).build()
     private val retrofit = Retrofit.Builder()
         .client(client)

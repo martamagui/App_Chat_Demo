@@ -55,7 +55,8 @@ dependencies {
     def room_version = "2.4.0"
     implementation "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
-
+    //Notificaciones
+    implementation "com.android.support:support-compat:28.0.0"
 
 
     testImplementation 'junit:junit:4.+'
